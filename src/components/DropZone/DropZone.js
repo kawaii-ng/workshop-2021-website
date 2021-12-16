@@ -3,12 +3,14 @@ import './DropZone.css';
 
 import 'boxicons'
 
-function DropZone() {
+function DropZone(props) {
 
-    const wrapperRef = useRef(null);
+    const title = props.title;
+    const submitDate = props.submitDate;
 
     const [files, setFiles] = useState([]);
 
+    const wrapperRef = useRef(null);
     const onDragEnter = () => wrapperRef.current.classList.add('drag-over')
     const onDragLeave = () => wrapperRef.current.classList.remove('drag-over')
     const onDrop = () => wrapperRef.current.classList.remove('drag-over')
@@ -57,7 +59,7 @@ function DropZone() {
                 ))               
             }
                 </div>
-            <button className="submit-coursework-btn">遞交</button>
+            <button className="submit-coursework-btn" disabled={new Date() < new Date(2021, 12, submitDate)}>遞交</button>
             </div>
 
         </div>

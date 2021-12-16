@@ -146,7 +146,7 @@ function App() {
 
       } */}
 
-      <DropZone />
+      <DropZone submitDate="17" title="flappy-bird" />
 
     </div>
   );
