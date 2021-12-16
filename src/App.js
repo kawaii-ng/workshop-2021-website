@@ -6,7 +6,7 @@ import { getStorage, ref, uploadBytesResumable, listAll, getDownloadURL } from '
 import './App.css';
 import logo from './logo.svg'
 
-import Dropzone from 'react-dropzone' 
+import DropZone from './components/DropZone/DropZone';
 
 function App() {
 
@@ -17,8 +17,10 @@ function App() {
   const [files, setFiles] = useState(null)
   const [materialList, setMaterialList] = useState([])
 
-  // handleChange: if file is added, get the files and assign 
-  //               it into files
+
+  /**
+   * handleChange: assign a list of selected files into files 
+   */
   const handleChange = (files) => {
 
     // set new files
@@ -26,7 +28,9 @@ function App() {
 
   }
 
-  // handleSave: upload the file to firebase storage
+  /**
+   * handleSave: upload files to firebase storage
+   */
   const handleSave = () => {
 
     for(var i = 0; i < files.length; i++){
@@ -46,8 +50,9 @@ function App() {
 
   }
 
-  // getMaterialList: getting a list of materials from firebase storage
-  //                  and assign it into materialList
+  /**
+   * getMaterialList: list the item within firebase storage
+   */
   const getMaterialList = () => {
 
     const listRef = ref(storage, 'flappy-bird-material/')
@@ -74,7 +79,9 @@ function App() {
 
   }
 
-  // getUrl: provide a file name and generate a download url for downloading it via a link
+  /**
+   * getUrl: generate the download url of the specific file 
+   */
   const getUrl = (name) => {
 
     const fileRef = ref(storage, 'flappy-bird-material/'+name)
@@ -92,7 +99,9 @@ function App() {
 
   }
 
-  // initialize the material list
+  /**
+   * initialize the list of teaching materials
+   */
   useEffect(()=>{
 
     if(!materialList.length) {
@@ -109,7 +118,7 @@ function App() {
       {/* upload and seletct file */}
       {/* <label htmlFor="select-file">Select</label> */}
       {/* <input id="select-file" multiple type="file" onChange={(e) => {handleChange(e.target.files)}} /> */}
-      <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+      {/* <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
         {({getRootProps, getInputProps}) => (
           <section>
             <div {...getRootProps()}>
@@ -135,7 +144,9 @@ function App() {
 
         ))
 
-      }
+      } */}
+
+      <DropZone />
 
     </div>
   );
