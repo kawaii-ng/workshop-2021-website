@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;900&display=swap');
+
 :root {
 
   --bg-color: #ffffff;
@@ -14,20 +16,6 @@ html {
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
+  font-family: 'Noto Sans HK', sans-serif;
 
 }
-
-label {
-
-  padding: 50px;
-  width: 500px;
-  height: 500px;
-  border: 3px dashed red;
-
-}
-/* 
-input[type=file] {
-
-  visibility: hidden;
-
-} */

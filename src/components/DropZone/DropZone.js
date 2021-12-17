@@ -2,19 +2,37 @@ import React, { useRef, useState, useEffect } from 'react'
 import './DropZone.css';
 
 import 'boxicons'
+import SubmitButton from '../SubmitButton/SubmitButton';
+
+/**
+ * 
+ * @DropZone :
+ * - responsible for handling the file control 
+ *  such as adding file, dropping file 
+ * 
+ * props:
+ * @submitDate : the date of submiting the classwork
+ * @title : the target folder name to upload 
+ * 
+ */
 
 function DropZone(props) {
 
-    const title = props.title;
-    const submitDate = props.submitDate;
-
+    // the files list dropping to the webpage
     const [files, setFiles] = useState([]);
 
+    // drag and drop function
     const wrapperRef = useRef(null);
     const onDragEnter = () => wrapperRef.current.classList.add('drag-over')
     const onDragLeave = () => wrapperRef.current.classList.remove('drag-over')
     const onDrop = () => wrapperRef.current.classList.remove('drag-over')
 
+    /**
+     * 
+     * @onFileDrop : 
+     * it updates the files list that are waitting to upload
+     * 
+     */
     const onFileDrop = (file) => {
 
         const newList = [...files]
@@ -30,20 +48,26 @@ function DropZone(props) {
         console.log("file: " , files)
     }
 
-    useEffect(()=>{}, [files])
+    useEffect(()=>{
+
+    }, [files])
 
     return (
         <div className="dropzone-container">
             
+            {/* drag and drop area */}
             <div ref={wrapperRef} 
                 className="drop-zone" 
                 onDragEnter={onDragEnter} 
                 onDragLeave={onDragLeave} 
                 onDrop={onDrop}
             >
-                請將檔案拖放在此
+                <box-icon size="100px" color="#dfe4e3" type='solid' name='cloud-upload'></box-icon>
+                <span>請將檔案拖放在此</span>
                 <input multiple type="file" value="" onChange={(e)=>{onFileDrop(e.target.files)}} />
             </div>
+
+            {/* preview the waitting list of uploading files */}
             <div className="dropzone-list">
                 <div className="dropzone-scroll-panel">
             {
@@ -59,7 +83,7 @@ function DropZone(props) {
                 ))               
             }
                 </div>
-            <button className="submit-coursework-btn" disabled={new Date() < new Date(2021, 12, submitDate)}>遞交</button>
+                <SubmitButton submitDate={props.submitDate} title={props.title} files={files} setFiles={setFiles} />
             </div>
 
         </div>

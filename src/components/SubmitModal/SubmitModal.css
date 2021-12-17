@@ -1,0 +1,34 @@
+.submit-modal {
+
+    position: fixed;
+    left: calc(50% - 125px);
+    bottom: 50px;
+    width: 250px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 300;
+
+    opacity: 0;
+    transition: all .4s ease-in-out;
+
+}
+
+.submit-modal span {
+
+    margin-left: 1em;
+
+}
+
+.submit-modal.show-modal {
+
+    opacity: 1;
+
+}

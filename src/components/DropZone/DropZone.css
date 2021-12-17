@@ -30,6 +30,7 @@
     height: 90%;
 
     background-color: white;
+    color: var(--white-color);
 
     border: 1em dashed var(--main-color);
     border-radius: 50px;
@@ -39,7 +40,6 @@
 
 }
 
-.drop-zone:hover,
 .drag-over {
 
     border: 1em dashed var(--second-color);
@@ -74,7 +74,7 @@ input[type=file] {
 
 }
 
-::-webkit-scrollbar {
+.dropzone-scroll-panel::-webkit-scrollbar {
 
     width: 0px;
 
@@ -120,32 +120,3 @@ input[type=file] {
 
 }
 
-.submit-coursework-btn {
-
-    position: absolute;
-    bottom: 5px;
-    padding: 1em;
-    width: 90%;
-    margin: 1em;
-    border-radius: 25px;
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: all .4s ease-in-out;
-
-}
-
-.submit-coursework-btn:hover {
-
-    background-color: var(--second-color);
-
-}
-
-.submit-coursework-btn:disabled,
-.submit-coursework-btn:disabled:hover {
-
-    background-color: var(--white-color);
-    color: #999;
-
-}

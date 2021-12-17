@@ -1,0 +1,33 @@
+.submit-coursework-btn {
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    padding: .5em;
+    width: -webkit-fill-available;
+    margin: 1em;
+    border-radius: 25px;
+    background-color: var(--main-color);
+    color: white;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+
+}
+
+.submit-coursework-btn:hover {
+
+    background-color: var(--second-color);
+
+}
+
+.submit-coursework-btn:disabled,
+.submit-coursework-btn:disabled:hover {
+
+    background-color: var(--white-color);
+    color: #999;
+
+}
