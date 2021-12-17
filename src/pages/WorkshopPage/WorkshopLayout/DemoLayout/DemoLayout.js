@@ -136,21 +136,23 @@ function DemoLayout() {
                             
                             <>
                                 <h1>製作所需的檔案</h1>
-                                <h5>{materialList.length} 個檔案</h5>
+                                <span>{materialList.length} 個檔案</span>
+                                <div className='dl-scroll-panel'>
                                 {
 
                                     materialList.map((item, index) => (
                                         
-                                        <a key={index} href={getUrl(item.name)} download={item.name} className='dl-box'>
+                                        <div key={index} className='dl-box'>
                                             <span>{item.name} </span>
-                                            <div className='dl-btn'>
+                                            <a className='dl-btn' href={getUrl(item.name)} download={item.name}>
                                                 <box-icon name='download' color="white" type='solid' ></box-icon>
                                                 <span>下載</span>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     ))
 
                                 }
+                                </div>
                             </>
 
                         }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import DemoLayout from './DemoLayout/DemoLayout'
+import SubmitLayout from './SubmitLayout/SubmitLayout';
 import './WorkshopLayout.css'
 
 /**
@@ -29,6 +30,16 @@ function WorkshopLayout() {
                 && 
                 (
                     <DemoLayout />
+                )
+
+            }
+
+            {
+
+                section == 'submit'
+                &&
+                (
+                    <SubmitLayout />
                 )
 
             }

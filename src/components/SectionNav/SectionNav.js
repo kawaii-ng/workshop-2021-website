@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import './SectionNav.css'
 
 /**
@@ -14,14 +14,16 @@ import './SectionNav.css'
 
 function SectionNav(props) {
 
-    const musicGameItem = ["實作試玩", "學習重點", "遞交專案"]
-    const changeGameItem = ["學習重點", "遞交專案"]
+    const navigate = useNavigate();
+
+    const musicGameItem = ["實作試玩", "遞交專案"]
+    const changeGameItem = ["實作示範", "遞交專案"]
     const flappyBirdItem = musicGameItem
 
     const navItemList = [ musicGameItem, changeGameItem, flappyBirdItem ]
     const [navIndex, setNavIndex] = useState(0)
 
-    let { topic } = useParams();
+    let { day, topic } = useParams();
 
     useEffect(()=>{
         if(topic == 'music-game')
@@ -39,7 +41,12 @@ function SectionNav(props) {
 
                 topic != null &&
                 navItemList[navIndex].map((item, index) => (
-                    <div key={index}  className={`section-nav-item ${item=="遞交專案" && "important"}`}>
+                    <div key={index} 
+                        className={`section-nav-item ${item=="遞交專案" && "important"}`}
+                        onClick={()=>{navigate(`/material/${day}/${topic}/${
+                            item=="實作試玩"?"demo":"submit"
+                        }`)}}
+                        >
                         <span>{item}</span>
                     </div>                    
                 ))

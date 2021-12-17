@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './WorkshopPage.css'
 
-import img from '../../images/music-game.PNG'
+import musicGameImg from '../../images/music-game.PNG'
+import changeGameImg from '../../images/make-change.PNG'
+import birdGameImg from '../../images/flappy-bird.PNG'
 
 import SectionNav from '../../components/SectionNav/SectionNav'
 import WorkshopLayout from './WorkshopLayout/WorkshopLayout'
@@ -30,9 +32,12 @@ function WorkshopPage() {
     const dayTwoItem = ["找續遊戲", "笨鳥先飛"]
     const dayOneGame = ["music-game"]
     const dayTwoGame = ["make-change", "flappy-bird"]
+    const dayOneImg = [musicGameImg]
+    const dayTwoImg = [changeGameImg, birdGameImg]
 
     const daysItem = [dayOneItem, dayTwoItem]
     const gameList = [dayOneGame, dayTwoGame]
+    const imgList = [dayOneImg, dayTwoImg]
 
     // update dayNum for determine which day is chosen
     useEffect(()=>{
@@ -70,7 +75,7 @@ function WorkshopPage() {
                             daysItem[dayNum].map((item, index)=>(
                                 <div key={index} 
                                     className="topic-item" 
-                                    style={{backgroundImage: "url("+img+")"}}
+                                    style={{backgroundImage: "url("+imgList[dayNum][index]+")"}}
                                     onClick={()=>{navigate("/material/"+ (dayNum=="0"?"day-one/":"day-two/") +gameList[dayNum][index]+"/demo"); setDayNum(null)}}
                                     >
                                     <h1>{item}</h1>

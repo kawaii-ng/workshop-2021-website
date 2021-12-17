@@ -37,6 +37,22 @@
 
 }
 
+.dl-scroll-panel {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-x: hidden;
+
+}
+
+.dl-scroll-panel::-webkit-scrollbar {
+
+    height: 1px;
+
+}
+
 .dl-box {
 
     display: flex;
@@ -53,17 +69,19 @@
 
 }
 
-.dl-box:hover {
+/* .dl-box:hover {
 
     background-color: var(--white-color);
 
-}
+} */
 
 .dl-btn {
 
     margin: 0em 1em ;
     padding: 1em;
+    width: 100px;
     color: white;
+    text-decoration: none;
     background-color: var(--second-color);
     border-radius: 50px;
     cursor: pointer;
@@ -101,8 +119,26 @@
     }
     
     .demo-right-frame {
-        
+
         min-height: 500px;
+    
+    }
+
+    .dl-scroll-panel {
+
+        padding: 1em;
+        max-width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: scroll;
+    
+    }
+    
+    .dl-scroll-panel::-webkit-scrollbar {
+    
+        height: 1px;
     
     }
     
@@ -113,7 +149,7 @@
         justify-content: space-between;
         width: 200px;
         height: fit-content;
-        padding: 1em 1.5em;    
+        padding: 1em 1em;    
         cursor: pointer;
         text-decoration: none;
         color: black;
@@ -122,17 +158,19 @@
     
     }
     
-    .dl-box:hover {
+    /* .dl-box:hover {
     
         background-color: var(--white-color);
     
-    }
+    } */
     
     .dl-btn {
     
         margin: 0em 1em ;
         padding: 1em;
+        width: 100px;
         color: white;
+        text-decoration: none;
         background-color: var(--second-color);
         border-radius: 50px;
         cursor: pointer;

@@ -1,0 +1,38 @@
+.submit-layout {
+
+    padding: 1.5em 0em;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    max-height: 400px;
+    overflow-y: scroll;
+
+}
+
+.submit-layout::-webkit-scrollbar {
+
+    width: 0px;
+
+}
+
+.submit-layout h1 {
+
+    margin-left: 0em;
+
+}
+
+@media screen and (min-width: 900px) {
+    .submit-layout {
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+    }
+    
+    .submit-layout h1 {
+    
+        margin-left: 1em;
+    
+    }
+}
