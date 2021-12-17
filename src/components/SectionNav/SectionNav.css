@@ -1,0 +1,47 @@
+.section-nav {
+
+    position: relative;
+    width: -webkit-fill-available;
+    height: 90px;
+    margin: 0;
+    padding: 0em 1.5em;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+}
+
+.section-nav::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+}
+
+.section-nav-item {
+
+    background: var(--white-color);
+    margin: 0em .7em;
+    padding: .5em 1.5em;
+    min-width: fit-content;
+    border-radius: 25px;
+    color: black;
+    font-size: 1rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+
+}
+
+.section-nav-item:hover {
+
+    transform: translateY(-3px);
+
+}
+
+.section-nav-item.important {
+
+    background-color: var(--second-color);
+    color: white;
+    font-weight: 300;
+
+}
