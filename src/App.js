@@ -1,23 +1,48 @@
-import logo from './logo.svg';
+import React from 'react'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+
 import './App.css';
+import logo from './logo.svg'
+
+import HomePage from './pages/HomePage/HomePage'
+import WorkshopPage from './pages/WorkshopPage/WorkshopPage'
+
+import DropZone from './components/DropZone/DropZone';
+import MainNav from './components/MainNav/MainNav';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <Router>
+
+        <div className="page-layout">
+
+          <Routes>
+            <Route path="/:page" element={<MainNav />}>
+              <Route path=":dayOf" element={<MainNav />}></Route>
+              <Route path=":dayOf/:topicN" element={<MainNav />}></Route>
+              <Route path=":dayOf/:topicN/:sectionN" element={<MainNav />}></Route>
+            </Route>
+          </Routes>
+
+          <div className="page-content">
+            <Routes>
+              <Route path='/' element={<Navigate to="/home"/>} exact></Route>
+              <Route path='/home' element={<HomePage/>} exact></Route>
+              <Route path='/material/:day' element={<WorkshopPage/>} exact>
+                <Route path=":topic" element={<WorkshopPage />}></Route>
+                <Route path=":topic/:section" element={<WorkshopPage />}></Route>
+              </Route>
+            </Routes>
+          {/* <DropZone submitDate="17" title="flappy-bird" /> */}
+          </div>
+        </div>
+
+      </Router>
+
+
     </div>
   );
 }

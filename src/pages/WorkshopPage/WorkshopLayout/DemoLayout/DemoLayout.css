@@ -1,0 +1,235 @@
+.demo-layout {
+
+    /* display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 1.5em; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 400px;
+    padding: 1em;
+
+}
+
+.demo-layout::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+.demo-left-frame {
+
+    max-width: 350px;
+    min-height: 350px;
+    max-height: 400px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 10px 10px 20px var(--white-color);
+
+}
+
+.demo-right-frame {
+
+    min-height: 500px;
+
+}
+
+.dl-scroll-panel {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-x: hidden;
+
+}
+
+.dl-scroll-panel::-webkit-scrollbar {
+
+    height: 1px;
+
+}
+
+.dl-box {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* min-width: 200px; */
+    width: fit-content;
+    max-width: fit-content;
+    height: fit-content;
+    padding: 1em 1.5em;    
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    border-radius: 25px;
+    transition: all .4s ease-in-out;
+
+}
+
+.dl-box span {
+
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+}
+
+/* .dl-box:hover {
+
+    background-color: var(--white-color);
+
+} */
+
+.dl-btn {
+
+    margin: 0em 1em ;
+    padding: 1em;
+    width: 60px;
+    color: white;
+    text-decoration: none;
+    background-color: var(--second-color);
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all .4s ease-in-out;
+
+}
+
+.dl-btn:hover {
+
+    opacity: .7;
+
+}
+
+.demo-file-num {
+
+    color: var(--main-color);
+    font-weight: 300;
+
+}
+
+@media screen and (min-width: 1200px) {
+    .demo-layout {
+
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-column-gap: 100px;
+    
+    }
+    
+    .demo-left-frame {
+    
+        min-width: 450px;
+        max-width: 450px;
+        min-height: 400px;
+        max-height: 400px;
+        border-radius: 50px;
+        overflow: hidden;
+        box-shadow: 10px 10px 20px var(--white-color);
+    
+    }
+    
+    .demo-right-frame {
+
+        min-height: 500px;
+    
+    }
+
+    .dl-scroll-panel {
+
+        padding: 0em 1.5em;
+        width: 500px;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: scroll;
+    
+    }
+    
+    .dl-scroll-panel::-webkit-scrollbar {
+    
+        height: 1px;
+    
+    }
+
+    .dl-box {
+    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* min-width: 200px; */
+        width: fit-content;
+        height: fit-content;
+        padding: 1em 1em;    
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+        border-radius: 25px;
+        transition: all .4s ease-in-out;
+    
+    }
+
+    .dl-box span {
+
+        max-width: fit-content;
+        white-space: pre-wrap;
+        overflow: visible;
+        text-overflow: clip;
+    
+    
+    }
+    
+    /* .dl-box:hover {
+    
+        background-color: var(--white-color);
+    
+    } */
+    
+    .dl-btn {
+    
+        margin: 0em 1em ;
+        padding: 1em;
+        width: 60px;
+        color: white;
+        text-decoration: none;
+        background-color: var(--second-color);
+        border-radius: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        transition: all .4s ease-in-out;
+    
+    }
+    
+    .dl-btn:hover {
+    
+        opacity: .7;
+    
+    }
+    
+    .demo-file-title {
+
+        display: flex;
+        align-items: center;
+        height: fit-content;
+
+    }
+
+    .demo-file-num {
+
+        font-weight: 300;
+        margin-left: 1em;
+
+    }
+
+}
+

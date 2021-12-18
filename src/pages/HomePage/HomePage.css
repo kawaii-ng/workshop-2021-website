@@ -1,0 +1,194 @@
+.home-layout {
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 30px;
+    height: inherit;
+    border-radius: 50px;
+    overflow: hidden;
+
+}
+
+.home-banner {
+
+    position: relative;
+    height: -webkit-fill-available;
+    width: 100%;
+    border-radius: 50px;
+    background-image: url('../../images/banner.PNG');
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.home-banner div {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    animation: home-banner-animation 1s;
+}
+
+@keyframes home-banner-animation {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.home-banner div h1 {
+
+    position: relative;
+    font-size: 2.5rem;
+    margin: .1em;
+
+}
+
+.home-banner div h3 {
+
+    position: relative;
+    font-size: 1rem;
+
+}
+
+.home-banner::after {
+    
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background-color: var(--main-color);
+    opacity: .8;
+
+}
+
+.home-banner h1 {
+
+    margin: 1em;
+
+}
+
+.game-selection {
+
+    height: -webkit-fill-avaliable;
+    width: 100%;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+
+}
+
+.game-selection::-webkit-scrollbar {
+
+    height: 0px;
+
+}
+
+.game-card {
+
+    margin-right: 1.5em;
+    position: relative;
+    min-width: 300px;
+    height: 200px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.game-card::after {
+    
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background-color: var(--second-color);
+    opacity: .8;
+    transition: all .4s ease-in-out;
+    
+}
+
+.game-card:hover::after {
+
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+
+}
+
+.game-card:hover div h1, 
+.game-card:hover div div{
+
+    opacity: 1;
+
+}
+
+.game-card:hover div h1{
+
+    opacity: 1;
+
+}
+
+.game-card:hover div div {
+
+    transform: translateY(-10px);
+
+}
+
+.game-card div div:hover {
+
+    opacity: .8;
+
+}
+
+.game-card div {
+
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .4s ease-in-out;
+}
+
+.game-card div h1 {
+
+    position: relative;
+    color: #fff;
+    opacity: .8;
+    
+
+}
+
+.game-card div div {
+
+    position: relative;
+    background-color: white;
+    border-radius: 50px;
+    padding: .5em 1em;
+    color: var(--second-color);
+    font-weight: 900;
+    mix-blend-mode: screen;
+    opacity: 0;
+
+}
