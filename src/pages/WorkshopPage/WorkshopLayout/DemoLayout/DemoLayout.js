@@ -23,7 +23,7 @@ import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage'
 
 function DemoLayout() {
 
-    const { topic } = useParams();
+    let { topic } = useParams();
 
     // firebase storage
     const storage = getStorage()

@@ -18,8 +18,14 @@ function App() {
       <Router>
 
         <div className="page-layout">
-          
-          <MainNav />
+
+          <Routes>
+            <Route path="/:page" element={<MainNav />}>
+              <Route path=":dayOf" element={<MainNav />}></Route>
+              <Route path=":topicNav" element={<MainNav />}></Route>
+              <Route path=":sectionNav" element={<MainNav />}></Route>
+            </Route>
+          </Routes>
 
           <div className="page-content">
             <Routes>

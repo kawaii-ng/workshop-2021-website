@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import './MainNav.css'
 
 /**
@@ -11,8 +11,9 @@ import './MainNav.css'
 
 function MainNav() {
 
+    let { page, dayOf } = useParams()
     const navigate = useNavigate();
-    const [activeItem, setActiveItem] = useState("home")
+    const [activeItem, setActiveItem] = useState()
 
     /**
      * 
@@ -31,6 +32,11 @@ function MainNav() {
 
 
     }
+
+    useEffect(()=>{
+        if(typeof activeItem == 'undefined')
+            setActiveItem(page=='home'?'home': dayOf)
+    }, [page, dayOf, activeItem])
 
     return (
         <div className='main-nav'>

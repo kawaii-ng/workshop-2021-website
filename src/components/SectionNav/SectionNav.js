@@ -14,16 +14,15 @@ import './SectionNav.css'
 
 function SectionNav(props) {
 
+    let { day, topic } = useParams();
     const navigate = useNavigate();
 
     const musicGameItem = ["實作試玩", "遞交專案"]
     const changeGameItem = ["實作示範", "遞交專案"]
     const flappyBirdItem = musicGameItem
 
-    const navItemList = [ musicGameItem, changeGameItem, flappyBirdItem ]
+    const navItemList = [musicGameItem, changeGameItem, flappyBirdItem]
     const [navIndex, setNavIndex] = useState(0)
-
-    let { day, topic } = useParams();
 
     useEffect(()=>{
         if(topic == 'music-game')
