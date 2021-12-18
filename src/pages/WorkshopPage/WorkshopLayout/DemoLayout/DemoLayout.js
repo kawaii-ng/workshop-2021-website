@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './DemoLayout.css'
 
-import { musicGameData } from '../../../../data/music-game'
-import { flappyBirdData } from '../../../../data/flappy-bird'
 import { useParams } from 'react-router-dom'
 
 import  firebase from '../../../../config/firebase'
@@ -102,9 +100,13 @@ function DemoLayout() {
             setGameData(gameDataList[0])
             console.log("music: ", gameData)
         }
-        else if(topic == 'flappy-bird'){
-
+        else if(topic == 'make-change'){
+            
             setGameData(gameDataList[1])
+
+        }else if(topic == 'flappy-bird'){
+
+            setGameData(gameDataList[2])
             console.log("bird: ", gameData)
         }
 
@@ -122,9 +124,8 @@ function DemoLayout() {
 
             <div className='demo-right-frame'>
                 <div>
-
                     <h1>實作試玩</h1>
-                    <h3>遊戲玩法：</h3>
+                    <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid' name='joystick'></box-icon>遊戲玩法</h3>
                     { typeof gameData != "undefined" && gameData.demo.instruction}
                 </div>
 
@@ -136,8 +137,10 @@ function DemoLayout() {
                         {
                             
                             <>
-                                <h1>製作所需的檔案</h1>
-                                <span>{materialList.length} 個檔案</span>
+                                <div class="demo-file-title">
+                                    <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' type='solid' ></box-icon>製作所需的檔案</h3>
+                                    <span className="demo-file-num">{materialList.length} 個檔案</span>
+                                </div>
                                 <div className='dl-scroll-panel'>
                                 {
 

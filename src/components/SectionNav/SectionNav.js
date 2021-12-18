@@ -42,9 +42,11 @@ function SectionNav(props) {
                 navItemList[navIndex].map((item, index) => (
                     <div key={index} 
                         className={`section-nav-item ${item=="遞交專案" && "important"}`}
-                        onClick={()=>{navigate(`/material/${day}/${topic}/${
-                            item=="實作試玩"?"demo":"submit"
-                        }`)}}
+                        onClick={()=>{
+                            navigate(`/material/${day}/${topic}/${
+                                item=="實作試玩"||item=="實作示範"?"demo":"submit"
+                            }`)}
+                        }
                         >
                         <span>{item}</span>
                     </div>                    

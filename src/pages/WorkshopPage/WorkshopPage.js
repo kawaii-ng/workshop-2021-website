@@ -23,8 +23,6 @@ function WorkshopPage() {
 
     let { day, topic, section } = useParams();
     const navigate = useNavigate();
-
-    const [type, setType] = useState(null)
     const [dayNum, setDayNum] = useState(null)
 
     // list of data  
@@ -49,18 +47,6 @@ function WorkshopPage() {
             setDayNum(null)
 
     }, [day, dayNum, topic])
-
-    // update type
-    useEffect(()=>{
-
-        if(section == "實作試玩")
-            setType = 'demo'
-        if(section == "學習重點")
-            setType = 'note'
-        if(section == "遞交專案")
-            setType = 'submit'
-        
-    }, [section])
 
     return (
         <div>
