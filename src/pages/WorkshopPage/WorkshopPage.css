@@ -8,6 +8,12 @@
 
 }
 
+.topic-scroll::-webkit-scrollbar {
+
+    height: 0px;
+
+}
+
 .topic-item {
 
     position: relative;
