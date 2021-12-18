@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 
 import  firebase from '../../../../config/firebase'
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage'
+import { gameDataList } from '../../../../data/game-data'
 
 
 /**
@@ -42,20 +43,20 @@ function DemoLayout() {
         listAll(listRef)
         .then((res) => {
 
-        var newList = []
+            var newList = []
 
-        res.items.forEach((itemRef) => {
+            res.items.forEach((itemRef) => {
 
-            newList.push(itemRef)
+                newList.push(itemRef)
 
-        })
+            })
 
-        setMaterialList(newList)
+            setMaterialList(newList)
 
         })
         .catch((erorr) => {
 
-        console.log("App.js: Showing File List Error")
+            console.log("App.js: Showing File List Error")
 
         })
 
@@ -71,10 +72,10 @@ function DemoLayout() {
 
         getDownloadURL(fileRef)
         .then((url) => {
-        mUrl = url
+            mUrl = url
         })
         .catch((error) => {
-        console.log("App.js: Can't get url of a file")
+            console.log("App.js: Can't get url of a file")
         })
 
         return mUrl
@@ -98,12 +99,12 @@ function DemoLayout() {
 
         if(topic == 'music-game'){
 
-            setGameData(musicGameData)
+            setGameData(gameDataList[0])
             console.log("music: ", gameData)
         }
         else if(topic == 'flappy-bird'){
 
-            setGameData(flappyBirdData)
+            setGameData(gameDataList[1])
             console.log("bird: ", gameData)
         }
 

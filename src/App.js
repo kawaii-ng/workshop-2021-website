@@ -22,8 +22,8 @@ function App() {
           <Routes>
             <Route path="/:page" element={<MainNav />}>
               <Route path=":dayOf" element={<MainNav />}></Route>
-              <Route path=":topicNav" element={<MainNav />}></Route>
-              <Route path=":sectionNav" element={<MainNav />}></Route>
+              <Route path=":dayOf/:topicN" element={<MainNav />}></Route>
+              <Route path=":dayOf/:topicN/:sectionN" element={<MainNav />}></Route>
             </Route>
           </Routes>
 
