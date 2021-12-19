@@ -14,7 +14,8 @@ const musicGameData = {
         material: ""
     
     }, 
-    submitDate: 28
+    submitDate: 28,
+    ide: 'Scratch'
 
 }
 
@@ -30,7 +31,8 @@ const makeChangeGameData = {
         material: "make-change-material/"
 
     },
-    submitDate: 29
+    submitDate: 29,
+    ide: 'Codelab Adapter'
 
 }
 
@@ -46,7 +48,8 @@ const flappyBirdData = {
         material: "flappy-bird-material/"
     
     }, 
-    submitDate: 29
+    submitDate: 29,
+    ide: 'Scratch'
 
 }
 

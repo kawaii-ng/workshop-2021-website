@@ -17,6 +17,7 @@
     border-radius: 50px;
     background-image: url('../../images/banner.PNG');
     background-size: 100%;
+    background-position: top center;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -29,6 +30,7 @@
 .home-banner:hover {
 
     background-size: 150%;
+    background-position: right top;
 
 }
 

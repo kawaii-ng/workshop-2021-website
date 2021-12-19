@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './DemoLayout.css'
 
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 
 import  firebase from '../../../../config/firebase'
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage'
@@ -25,6 +25,7 @@ import { Scrollbars } from 'react-custom-scrollbars'
 function DemoLayout() {
 
     let { topic } = useParams();
+    const navigate = useNavigate()
 
     // firebase storage
     const storage = getStorage()
@@ -139,7 +140,7 @@ function DemoLayout() {
                         </div>
                         <div className={`tab-btn ${tabItem=="material" ? "tab-active" : ""}`}
                             onClick={()=>{setTabItem('material')}}>
-                            <span style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' color={tabItem == 'material' ? 'white': 'black'} type='solid' ></box-icon> <span>所需檔案</span></span>
+                            <span style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' color={tabItem == 'material' ? 'white': 'black'} type='solid' ></box-icon> <span>製作所需</span></span>
                         </div>
                     </div>
                 </div>
@@ -168,7 +169,7 @@ function DemoLayout() {
                                 
                                 <>
                                     <div class="demo-file-title">
-                                        <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' type='solid' ></box-icon>製作所需的檔案</h3>
+                                        <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' type='solid' ></box-icon>所需檔案</h3>
                                         <span className="demo-file-num">{materialList.length} 個檔案</span>
                                     </div>
                                     <Scrollbars style={{height: '100px', width: '100%'}}>
@@ -191,6 +192,15 @@ function DemoLayout() {
                                         </div>
                                         {/* </div> */}
                                     </Scrollbars>
+
+                                    <div>
+                                        <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid' name='window-alt'></box-icon>所需軟件</h3>
+                                        <div className='software-url' 
+                                            onClick={() => gameData.ide == "Scratch" ? window.open('https://scratch.mit.edu/projects/editor/?tutorial=getStarted', '_blank') : navigate('/dl')}
+                                            target='_blank'>
+                                            {gameData.ide}
+                                        </div>
+                                    </div>
                                 </>
     
                             }

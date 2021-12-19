@@ -168,6 +168,21 @@
 
 }
 
+.software-url {
+
+    cursor: pointer;
+    color: var(--main-color);
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+
+}
+
+.software-url:hover {
+
+    text-decoration: underline;
+
+}
+
 @media screen and (min-width: 1200px) {
     .demo-layout {
 
