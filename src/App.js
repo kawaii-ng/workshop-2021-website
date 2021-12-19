@@ -6,6 +6,7 @@ import logo from './logo.svg'
 
 import HomePage from './pages/HomePage/HomePage'
 import WorkshopPage from './pages/WorkshopPage/WorkshopPage'
+import SoftwarePage from './pages/SoftwarePage/SoftwarePage';
 
 import DropZone from './components/DropZone/DropZone';
 import MainNav from './components/MainNav/MainNav';
@@ -35,8 +36,8 @@ function App() {
                 <Route path=":topic" element={<WorkshopPage />}></Route>
                 <Route path=":topic/:section" element={<WorkshopPage />}></Route>
               </Route>
+              <Route path='/dl' element={<SoftwarePage/>}></Route>
             </Routes>
-          {/* <DropZone submitDate="17" title="flappy-bird" /> */}
           </div>
         </div>
 

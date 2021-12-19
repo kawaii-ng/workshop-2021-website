@@ -23,7 +23,7 @@ function WorkshopLayout() {
     let { section } = useParams();
 
     return (
-        <div>
+        <div className='section-layout'>
             {
 
                 section == "demo"

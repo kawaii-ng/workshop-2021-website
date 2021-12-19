@@ -9,6 +9,8 @@ import birdGameImg from '../../images/flappy-bird.PNG'
 import SectionNav from '../../components/SectionNav/SectionNav'
 import WorkshopLayout from './WorkshopLayout/WorkshopLayout'
 
+import { Scrollbars } from 'react-custom-scrollbars'
+
 /**
  * 
  * @WorkshopPage :
@@ -49,26 +51,28 @@ function WorkshopPage() {
     }, [day, dayNum, topic])
 
     return (
-        <div>
+        <div className='workshop-layout'>
 
             {
 
                 dayNum != null && 
                 (
 
-                    <div className="topic-scroll">
-                        {
-                            daysItem[dayNum].map((item, index)=>(
-                                <div key={index} 
-                                    className="topic-item" 
-                                    style={{backgroundImage: "url("+imgList[dayNum][index]+")"}}
-                                    onClick={()=>{navigate("/material/"+ (dayNum=="0"?"day-one/":"day-two/") +gameList[dayNum][index]+"/demo"); setDayNum(null)}}
-                                    >
-                                    <h1>{item}</h1>
-                                </div>
-                            ))
-                        }
-                    </div>
+                    <Scrollbars style={{height: '100%', width: '100%'}}>
+                        <div style={{display: 'flex', alignItems:'center', height: '100%', width: '100%'}}>
+                            {
+                                daysItem[dayNum].map((item, index)=>(
+                                    <div key={index} 
+                                        className="topic-item" 
+                                        style={{backgroundImage: "url("+imgList[dayNum][index]+")"}}
+                                        onClick={()=>{navigate("/material/"+ (dayNum=="0"?"day-one/":"day-two/") +gameList[dayNum][index]+"/demo"); setDayNum(null)}}
+                                        >
+                                        <h1>{item}</h1>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </Scrollbars>
 
                 )
 

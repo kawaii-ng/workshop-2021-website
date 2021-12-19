@@ -16,13 +16,22 @@
     width: 100%;
     border-radius: 50px;
     background-image: url('../../images/banner.PNG');
-    background-size: cover;
+    background-size: 100%;
+    background-position: top center;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: all 3s ease-in-out .2s;
     
+}
+
+.home-banner:hover {
+
+    background-size: 150%;
+    background-position: right top;
+
 }
 
 .home-banner div {
@@ -31,7 +40,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 1;
+    opacity: .5;
     animation: home-banner-animation 1s;
 }
 
@@ -41,7 +50,7 @@
         transform: translateX(-50px);
     }
     100% {
-        opacity: 1;
+        opacity: .5;
         transform: translateX(0px);
     }
 }
@@ -99,8 +108,8 @@
 
     margin-right: 1.5em;
     position: relative;
-    min-width: 300px;
-    height: 200px;
+    min-width: calc(300px); 
+    height: 100%;
     border-radius: 50px;
     display: flex;
     align-items: center;

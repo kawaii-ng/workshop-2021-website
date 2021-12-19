@@ -1,15 +1,12 @@
 .demo-layout {
-
-    /* display: grid;
-    grid-template-columns: auto 1fr;
-    grid-column-gap: 1.5em; */
-
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
-    max-height: 400px;
     padding: 1em;
 
 }
@@ -33,13 +30,68 @@
 
 .demo-right-frame {
 
-    min-height: 500px;
+    height: fit-content;
+
+}
+
+.tab-group {
+
+    display: flex;
+    border-radius: 50px;
+    overflow: hidden;
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+
+}
+
+.tab-btn {
+    height: fit-content;
+    width: 100px;
+    padding: 1em;
+    background-color: var(--white-color);
+    color: black;
+    transition: all .4s ease-in-out;
+}
+
+.tab-btn:hover {
+
+    opacity: .7;
+
+}
+
+.tab-btn span span {
+    width: fit-content;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 1;
+    transition: all .4s ease-in-out;
+}
+
+.tab-btn.tab-active {
+
+    width: 25px;
+    background-color: var(--main-color);
+    transition: all .4s ease-in-out;
+
+}
+
+.tab-btn.tab-active span span {
+
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    transition: all .4s ease-in-out;
 
 }
 
 .dl-scroll-panel {
 
     width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -89,8 +141,8 @@
 
 .dl-btn {
 
-    margin: 0em 1em ;
-    padding: 1em;
+    margin: 0.5em ;
+    padding: 0.8em 1em;
     width: 60px;
     color: white;
     text-decoration: none;
@@ -116,11 +168,27 @@
 
 }
 
+.software-url {
+
+    cursor: pointer;
+    color: var(--main-color);
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+
+}
+
+.software-url:hover {
+
+    text-decoration: underline;
+
+}
+
 @media screen and (min-width: 1200px) {
     .demo-layout {
 
+        width: inherit;
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-column-gap: 100px;
     
     }
@@ -139,14 +207,15 @@
     
     .demo-right-frame {
 
-        min-height: 500px;
+        width: 400px;
+        height: inherit;
     
     }
 
     .dl-scroll-panel {
 
         padding: 0em 1.5em;
-        width: 500px;
+        width: 100%;
         height: 100%;
         display: flex;
         flex-direction: row;

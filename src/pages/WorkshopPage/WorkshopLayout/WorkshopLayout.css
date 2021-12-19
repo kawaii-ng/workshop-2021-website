@@ -1,0 +1,6 @@
+.section-layout {
+
+    position: relative;
+    height: calc(100% - 90px);
+
+}

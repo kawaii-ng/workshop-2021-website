@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { gameDataList } from '../../data/game-data'
 import './HomePage.css'
 
+import { Scrollbars } from 'react-custom-scrollbars'
+
 /**
  * 
  * @HomePage
@@ -24,21 +26,26 @@ function HomePage() {
                 </div>
             </div>
             <div className='game-selection'>
-                {
-                    gameDataList.map((item, index) => (
-                        <div key={index} 
-                            className='game-card' style={{backgroundImage: `url(${item.imgUrl}`}}
-                            >
-                            <div>
-                                <h1>{item.name}</h1>
-                                <div
-                                    onClick={()=>{
-                                        navigate(`/material/${item.submitDate==28? 'day-one':'day-two'}/${item.id}/demo`)
-                                    }}>了解更多</div>
+                <Scrollbars style={{height: '100%', width: '100%'}}>
+                    <div style={{display:'flex', alignItems: 'center', height: '100%'}}>
+                    {
+                        gameDataList.map((item, index) => (
+                            <div key={index} 
+                                className='game-card' style={{backgroundImage: `url(${item.imgUrl}`}}
+                                onClick={()=>{
+                                    navigate(`/material/${item.submitDate==28? 'day-one':'day-two'}/${item.id}/demo`)
+                                }}
+                                >
+                                <div>
+                                    <h1>{item.name}</h1>
+                                    <div>了解更多</div>
+                                </div>
                             </div>
-                        </div>
-                    ))
-                }
+                        ))
+                    }
+                    </div>
+                </Scrollbars>
+                
             </div>
         </div>
     )
