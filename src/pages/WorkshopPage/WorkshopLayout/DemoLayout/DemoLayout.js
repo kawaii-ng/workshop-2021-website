@@ -126,7 +126,7 @@ function DemoLayout() {
             <div className='demo-left-frame'>
                 {
                     typeof gameData != "undefined" &&
-                    gameData.demo.scratchUrl
+                    gameData.demo.scratchUrl 
                 }
             </div>
 
