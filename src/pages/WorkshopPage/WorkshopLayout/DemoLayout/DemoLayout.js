@@ -7,6 +7,8 @@ import  firebase from '../../../../config/firebase'
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage'
 import { gameDataList } from '../../../../data/game-data'
 
+import { Scrollbars } from 'react-custom-scrollbars'
+
 
 /**
  * 
@@ -116,7 +118,9 @@ function DemoLayout() {
     useEffect(()=>{}, [tabItem])
 
     return (
+        <Scrollbars style={{height: '100%', width: '100%'}}>
         <div className='demo-layout'>
+
 
             <div className='demo-left-frame'>
                 {
@@ -127,17 +131,17 @@ function DemoLayout() {
 
             <div className='demo-right-frame'>
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                <h1 style={{marginRight: '50px'}}>實作試玩</h1>
-                <div className='tab-group'>
-                    <div className={`tab-btn ${tabItem=="game" ? "tab-active" : ""}`}
-                        onClick={()=>{setTabItem('game')}}>
-                        <span style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid'color={tabItem == "game" ? 'white' : "black"} name='joystick'></box-icon> <span>遊戲玩法</span> </span>
+                    <h1 style={{marginRight: '50px'}}>實作試玩</h1>
+                    <div className='tab-group'>
+                        <div className={`tab-btn ${tabItem=="game" ? "tab-active" : ""}`}
+                            onClick={()=>{setTabItem('game')}}>
+                            <span style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid'color={tabItem == "game" ? 'white' : "black"} name='joystick'></box-icon> <span>遊戲玩法</span> </span>
+                        </div>
+                        <div className={`tab-btn ${tabItem=="material" ? "tab-active" : ""}`}
+                            onClick={()=>{setTabItem('material')}}>
+                            <span style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' color={tabItem == 'material' ? 'white': 'black'} type='solid' ></box-icon> <span>所需檔案</span></span>
+                        </div>
                     </div>
-                    <div className={`tab-btn ${tabItem=="material" ? "tab-active" : ""}`}
-                        onClick={()=>{setTabItem('material')}}>
-                        <span style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' color={tabItem == 'material' ? 'white': 'black'} type='solid' ></box-icon> <span>所需檔案</span></span>
-                    </div>
-                </div>
                 </div>
 
                 {
@@ -167,22 +171,26 @@ function DemoLayout() {
                                         <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' type='solid' ></box-icon>製作所需的檔案</h3>
                                         <span className="demo-file-num">{materialList.length} 個檔案</span>
                                     </div>
-                                    <div className='dl-scroll-panel'>
-                                    {
-    
-                                        materialList.map((item, index) => (
-                                            
-                                            <div key={index} className='dl-box'>
-                                                <span>{item.name} </span>
-                                                <a className='dl-btn' href={getUrl(item.name)} download={item.name}>
-                                                    <box-icon name='download' color="white" type='solid' ></box-icon>
-                                                    <span>下載</span>
-                                                </a>
-                                            </div>
-                                        ))
-    
-                                    }
-                                    </div>
+                                    <Scrollbars style={{height: '100px', width: '100%'}}>
+                                        {/* <div className='dl-scroll-panel'> */}
+                                        <div style={{display: 'flex'}}>
+                                        {
+        
+                                            materialList.map((item, index) => (
+                                                
+                                                <div key={index} className='dl-box'>
+                                                    <span>{item.name} </span>
+                                                    <a className='dl-btn' href={getUrl(item.name)} download={item.name}>
+                                                        <box-icon name='download' color="white" type='solid' ></box-icon>
+                                                        <span>下載</span>
+                                                    </a>
+                                                </div>
+                                            ))
+        
+                                        }
+                                        </div>
+                                        {/* </div> */}
+                                    </Scrollbars>
                                 </>
     
                             }
@@ -195,7 +203,9 @@ function DemoLayout() {
                 
             </div>           
 
+
         </div>
+        </Scrollbars>
     )
 }
 

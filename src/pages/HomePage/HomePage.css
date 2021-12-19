@@ -16,13 +16,20 @@
     width: 100%;
     border-radius: 50px;
     background-image: url('../../images/banner.PNG');
-    background-size: cover;
+    background-size: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: all 3s ease-in-out .2s;
     
+}
+
+.home-banner:hover {
+
+    background-size: 150%;
+
 }
 
 .home-banner div {
