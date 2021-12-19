@@ -49,7 +49,7 @@ function WorkshopPage() {
     }, [day, dayNum, topic])
 
     return (
-        <div>
+        <div className='workshop-layout'>
 
             {
 

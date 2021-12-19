@@ -30,6 +30,7 @@ function DemoLayout() {
     // materials
     const [materialList, setMaterialList] = useState()
     const [gameData, setGameData] = useState()
+    const [tabItem, setTabItem] = useState('game')
 
     /**
      * getMaterialList: list the item within firebase storage
@@ -112,6 +113,8 @@ function DemoLayout() {
 
     },[topic, gameData])
 
+    useEffect(()=>{}, [tabItem])
+
     return (
         <div className='demo-layout'>
 
@@ -123,49 +126,74 @@ function DemoLayout() {
             </div>
 
             <div className='demo-right-frame'>
-                <div>
-                    <h1>實作試玩</h1>
-                    <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid' name='joystick'></box-icon>遊戲玩法</h3>
-                    { typeof gameData != "undefined" && gameData.demo.instruction}
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                <h1 style={{marginRight: '50px'}}>實作試玩</h1>
+                <div className='tab-group'>
+                    <div className={`tab-btn ${tabItem=="game" ? "tab-active" : ""}`}
+                        onClick={()=>{setTabItem('game')}}>
+                        <span style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid'color={tabItem == "game" ? 'white' : "black"} name='joystick'></box-icon> <span>遊戲玩法</span> </span>
+                    </div>
+                    <div className={`tab-btn ${tabItem=="material" ? "tab-active" : ""}`}
+                        onClick={()=>{setTabItem('material')}}>
+                        <span style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' color={tabItem == 'material' ? 'white': 'black'} type='solid' ></box-icon> <span>所需檔案</span></span>
+                    </div>
                 </div>
-
-                <div>
+                </div>
 
                 {
-                    typeof gameData != "undefined" && typeof materialList != "undefined" && 
-                    <>
-                        {
-                            
-                            <>
-                                <div class="demo-file-title">
-                                    <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' type='solid' ></box-icon>製作所需的檔案</h3>
-                                    <span className="demo-file-num">{materialList.length} 個檔案</span>
-                                </div>
-                                <div className='dl-scroll-panel'>
-                                {
 
-                                    materialList.map((item, index) => (
-                                        
-                                        <div key={index} className='dl-box'>
-                                            <span>{item.name} </span>
-                                            <a className='dl-btn' href={getUrl(item.name)} download={item.name}>
-                                                <box-icon name='download' color="white" type='solid' ></box-icon>
-                                                <span>下載</span>
-                                            </a>
-                                        </div>
-                                    ))
+                    tabItem == 'game' 
+                    && 
+                    <div>
+                        <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid' name='joystick'></box-icon>遊戲玩法</h3>
+                        { typeof gameData != "undefined" && gameData.demo.instruction}
+                    </div>
 
-                                }
-                                </div>
-                            </>
-
-                        }
-                    </>
-                
                 }
-                </div>
 
-            </div>
+                {
+
+                    tabItem == 'material'
+                    &&
+                    <div>
+
+                    {
+                        typeof gameData != "undefined" && typeof materialList != "undefined" && 
+                        <>
+                            {
+                                
+                                <>
+                                    <div class="demo-file-title">
+                                        <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' type='solid' ></box-icon>製作所需的檔案</h3>
+                                        <span className="demo-file-num">{materialList.length} 個檔案</span>
+                                    </div>
+                                    <div className='dl-scroll-panel'>
+                                    {
+    
+                                        materialList.map((item, index) => (
+                                            
+                                            <div key={index} className='dl-box'>
+                                                <span>{item.name} </span>
+                                                <a className='dl-btn' href={getUrl(item.name)} download={item.name}>
+                                                    <box-icon name='download' color="white" type='solid' ></box-icon>
+                                                    <span>下載</span>
+                                                </a>
+                                            </div>
+                                        ))
+    
+                                    }
+                                    </div>
+                                </>
+    
+                            }
+                        </>
+                    
+                    }
+                    </div>
+    
+                }
+                
+            </div>           
 
         </div>
     )
