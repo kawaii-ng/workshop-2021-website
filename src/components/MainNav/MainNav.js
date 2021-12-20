@@ -30,12 +30,10 @@ function MainNav() {
         // goto the specific link
         navigate(`/${item!='home' ? 'material/' : ""}`+item)
 
-
     }
 
     useEffect(()=>{
-        if(typeof activeItem == 'undefined')
-            setActiveItem(page=='home'?'home': dayOf)
+        setActiveItem(page=='home'?'home': dayOf)
     }, [page, dayOf, activeItem])
 
     return (
