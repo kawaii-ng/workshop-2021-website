@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { gameDataList } from '../../data/game-data';
 import './SectionNav.css'
 
 /**
@@ -17,29 +18,19 @@ function SectionNav(props) {
     let { day, topic } = useParams();
     const navigate = useNavigate();
 
-    const musicGameItem = ["實作試玩", "遞交專案"]
-    const changeGameItem = ["實作示範", "遞交專案"]
-    const flappyBirdItem = musicGameItem
-
-    const navItemList = [musicGameItem, changeGameItem, flappyBirdItem]
-    const [navIndex, setNavIndex] = useState(0)
+    const [game, setGame] = useState();
 
     useEffect(()=>{
-        if(topic == 'music-game')
-            setNavIndex(0)
-        if(topic == 'make-change')
-            setNavIndex(1)
-        if(topic == 'flappy-bird')
-            setNavIndex(2)
-    }, [topic])
+        setGame(gameDataList.find(game => { return game.id === topic}))
+    }, [topic, game])
 
     return (
         <div className="section-nav">
 
             {
 
-                topic != null &&
-                navItemList[navIndex].map((item, index) => (
+                topic != null && typeof game !== 'undefined' &&
+                game.sectionList.map((item, index) => (
                     <div key={index} 
                         className={`section-nav-item ${item=="遞交專案" && "important"}`}
                         onClick={()=>{

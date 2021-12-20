@@ -99,20 +99,7 @@ function DemoLayout() {
 
     useEffect(()=>{
 
-        if(topic == 'music-game'){
-
-            setGameData(gameDataList[0])
-            console.log("music: ", gameData)
-        }
-        else if(topic == 'make-change'){
-            
-            setGameData(gameDataList[1])
-
-        }else if(topic == 'flappy-bird'){
-
-            setGameData(gameDataList[2])
-            console.log("bird: ", gameData)
-        }
+        setGameData(gameDataList.find(game => { return game.id === topic}))
 
     },[topic, gameData])
 
@@ -125,14 +112,17 @@ function DemoLayout() {
 
             <div className='demo-left-frame'>
                 {
-                    typeof gameData != "undefined" &&
+                    typeof gameData != "undefined" && gameData.demo !== null && 
                     gameData.demo.scratchUrl 
                 }
             </div>
 
             <div className='demo-right-frame'>
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                    <h1 style={{marginRight: '50px'}}>實作試玩</h1>
+                    {
+                        typeof gameData !== 'undefined' && 
+                        <h1 style={{marginRight: '50px'}}>{gameData.sectionList[0]}</h1>
+                    }
                     <div className='tab-group'>
                         <div className={`tab-btn ${tabItem=="game" ? "tab-active" : ""}`}
                             onClick={()=>{setTabItem('game')}}>
@@ -151,7 +141,7 @@ function DemoLayout() {
                     && 
                     <div>
                         <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid' name='joystick'></box-icon>遊戲玩法</h3>
-                        { typeof gameData != "undefined" && gameData.demo.instruction}
+                        { typeof gameData != "undefined" && gameData.demo !== null && gameData.demo.instruction}
                     </div>
 
                 }

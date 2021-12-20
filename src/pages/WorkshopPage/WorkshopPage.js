@@ -11,6 +11,8 @@ import WorkshopLayout from './WorkshopLayout/WorkshopLayout'
 
 import { Scrollbars } from 'react-custom-scrollbars'
 
+import { gameDataList } from '../../data/game-data'
+
 /**
  * 
  * @WorkshopPage :
@@ -25,49 +27,36 @@ function WorkshopPage() {
 
     let { day, topic, section } = useParams();
     const navigate = useNavigate();
-    const [dayNum, setDayNum] = useState(null)
 
-    // list of data  
-    const dayOneItem = ["音樂遊戲"]
-    const dayTwoItem = ["找續遊戲", "笨鳥先飛"]
-    const dayOneGame = ["music-game"]
-    const dayTwoGame = ["make-change", "flappy-bird"]
-    const dayOneImg = [musicGameImg]
-    const dayTwoImg = [changeGameImg, birdGameImg]
+    const [gameList, setGameList] = useState([]);
 
-    const daysItem = [dayOneItem, dayTwoItem]
-    const gameList = [dayOneGame, dayTwoGame]
-    const imgList = [dayOneImg, dayTwoImg]
-
-    // update dayNum for determine which day is chosen
     useEffect(()=>{
-        if(day == 'day-one' && topic == null)
-            setDayNum(0)
-        else if(day == 'day-two' && topic == null)
-            setDayNum(1)
-        else   
-            setDayNum(null)
 
-    }, [day, dayNum, topic])
+        console.log(gameDataList.filter(game => { return game.submitDate === (day == 'day-one'?28:29)}))
+        let newList = gameDataList.filter(game => { return game.submitDate === (day == 'day-one'?28:29)})
+        setGameList(newList)
+        
+    },[day])
+
 
     return (
         <div className='workshop-layout'>
 
             {
 
-                dayNum != null && 
+                typeof gameList !== 'undefined' && topic == null && 
                 (
 
                     <Scrollbars style={{height: '100%', width: '100%'}}>
                         <div style={{display: 'flex', alignItems:'center', height: '100%', width: '100%'}}>
                             {
-                                daysItem[dayNum].map((item, index)=>(
+                                    gameList.map((item, index)=>(
                                     <div key={index} 
                                         className="topic-item" 
-                                        style={{backgroundImage: "url("+imgList[dayNum][index]+")"}}
-                                        onClick={()=>{navigate("/material/"+ (dayNum=="0"?"day-one/":"day-two/") +gameList[dayNum][index]+"/demo"); setDayNum(null)}}
+                                        style={{backgroundImage: "url("+item.imgUrl+")", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: "center"}}
+                                        onClick={()=>{navigate("/material/"+ (item.submitDate==28?"day-one/":"day-two/") +item.id+"/"+item.firstPath)}}
                                         >
-                                        <h1>{item}</h1>
+                                        <h1>{item.name}</h1>
                                     </div>
                                 ))
                             }

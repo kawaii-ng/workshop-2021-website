@@ -15,9 +15,10 @@
     height: -webkit-fill-available;
     width: 100%;
     border-radius: 50px;
-    background-image: url('../../images/banner.PNG');
+    background-image: url('../../images/banner.jpeg');
     background-size: 100%;
-    background-position: top center;
+    background-position: center;
+    background-repeat: no-repeat;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -30,7 +31,7 @@
 .home-banner:hover {
 
     background-size: 150%;
-    background-position: right top;
+    background-position: bottom left;
 
 }
 
@@ -130,7 +131,7 @@
     top: 0; bottom: 0;
     left: 0; right: 0;
     background-color: var(--second-color);
-    opacity: .8;
+    opacity: .7;
     transition: all .4s ease-in-out;
     
 }
@@ -184,6 +185,7 @@
 
     position: relative;
     color: #fff;
+    mix-blend-mode: screen;
     opacity: .8;
     
 
