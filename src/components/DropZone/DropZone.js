@@ -3,6 +3,7 @@ import './DropZone.css';
 
 import 'boxicons'
 import SubmitButton from '../SubmitButton/SubmitButton';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 /**
  * 
@@ -69,20 +70,22 @@ function DropZone(props) {
 
             {/* preview the waitting list of uploading files */}
             <div className="dropzone-list">
-                <div className="dropzone-scroll-panel">
-            {
-                files.length > 0 
-                &&     
-                files.map((item, index) => (
+                <Scrollbars style={{marginTop:'10%', marginBottom: '30%', height: '-webkit-fill-available', width: '100%'}}>
+                    {
+                        files.length > 0 
+                        &&     
+                        files.map((item, index) => (
 
-                    <div key={index} className="dropzone-list-item">
-                        <box-icon color="grey" size="lg" type='solid' name='file'></box-icon>
-                        <span>{item.name}</span>
-                    </div>
+                            <div key={index} className="dropzone-list-item">
+                                <box-icon color="grey" size="lg" type='solid' name='file'></box-icon>
+                                <span>{item.name}</span>
+                            </div>
 
-                ))               
-            }
-                </div>
+                        ))               
+                    }
+                </Scrollbars>
+                {/* <div className="dropzone-scroll-panel"> */}
+                {/* </div> */}
                 <SubmitButton submitDate={props.submitDate} title={props.title} files={files} setFiles={setFiles} />
             </div>
 

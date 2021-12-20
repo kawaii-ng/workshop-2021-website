@@ -33,7 +33,7 @@ function HomePage() {
                             <div key={index} 
                                 className='game-card' style={{backgroundImage: `url(${item.imgUrl}`}}
                                 onClick={()=>{
-                                    navigate(`/material/${item.submitDate==28? 'day-one':'day-two'}/${item.id}/demo`)
+                                    navigate(`/material/${item.submitDate==28? 'day-one':'day-two'}/${item.id}/${item.firstPath}`)
                                 }}
                                 >
                                 <div>
