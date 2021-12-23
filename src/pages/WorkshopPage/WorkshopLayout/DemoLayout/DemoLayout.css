@@ -235,10 +235,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /* min-width: 200px; */
-        width: fit-content;
+        width: 500px;
         height: fit-content;
-        padding: 1em 1em;    
+        margin: 0em .5em;
+        padding: 1em .5em;    
         cursor: pointer;
         text-decoration: none;
         color: black;
@@ -249,11 +249,10 @@
 
     .dl-box span {
 
-        max-width: fit-content;
+        width: max-content;
         white-space: pre-wrap;
-        overflow: visible;
-        text-overflow: clip;
-    
+        overflow: hidden;
+        text-overflow: ellipsis;    
     
     }
     

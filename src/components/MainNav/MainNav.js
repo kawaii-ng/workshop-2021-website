@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import Scrollbars from 'react-custom-scrollbars';
 import { useNavigate, useParams } from 'react-router-dom'
 import './MainNav.css'
 
@@ -28,15 +29,16 @@ function MainNav() {
 
         setActiveItem(item)
         // goto the specific link
-        navigate(`/${item!='home' ? 'material/' : ""}`+item)
+        navigate(`/${item!='home' && item!='capture-guide' ? 'material/' : ""}`+item)
 
     }
 
     useEffect(()=>{
-        setActiveItem(page=='home'?'home': dayOf)
+        setActiveItem(page=='home'?'home': page=='capture-guide'? 'capture-guide' : dayOf)
     }, [page, dayOf, activeItem])
 
     return (
+        <Scrollbars style={{height: '100px', width: '100%', overflow:'hidden'}}>
         <div className='main-nav'>
             <div className={`main-nav-item ${activeItem == "home" && "main-nav-item-active"}`}
                 onClick={() => onClick("home")}
@@ -47,16 +49,29 @@ function MainNav() {
             <div className={`main-nav-item ${activeItem == "day-one" && "main-nav-item-active"}`}
                 onClick={() => onClick("day-one")}
             >
-                <box-icon color={activeItem == "day-one" ? "white" : "black"} type='solid' name={activeItem == "DayOne" ? "book-content" : 'book'}></box-icon>
+                <box-icon color={activeItem == "day-one" ? "white" : "black"} type='solid' name={activeItem == "day-one" ? "book-content" : 'book'}></box-icon>
                 <span>第一天</span>
             </div>
             <div className={`main-nav-item ${activeItem == "day-two" && "main-nav-item-active"}`}
                 onClick={() => onClick("day-two")}
             >
-                <box-icon color={activeItem == "day-two" ? "white" : "black"} type="solid" name={activeItem == "DayTwo" ? "book-content" : 'book'} ></box-icon>
+                <box-icon color={activeItem == "day-two" ? "white" : "black"} type="solid" name={activeItem == "day-two" ? "book-content" : 'book'} ></box-icon>
                 <span>第二天</span>
             </div>            
+            <div className={`main-nav-item ${activeItem == "capture-guide" && "main-nav-item-active"}`}
+                onClick={() => onClick("capture-guide")}
+            >
+                <box-icon color={activeItem == "capture-guide" ? "white" : "black"} type="solid" name={activeItem == "capture-guide" ? "book-content" : 'book'} ></box-icon>
+                <span>截圖指引</span>
+            </div>            
+            <div className="main-nav-item"
+                onClick={() => {window.open("https://steam.oxxostudio.tw/category/scratch/index.html", "_blank")}}
+            >
+                <box-icon color="black" type="solid" name='book'></box-icon>
+                <span>其他資源</span>
+            </div>            
         </div>
+        </Scrollbars>
     )
 }
 
