@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/workshop-2021-website/static/css/main.777f2bae.css",
-    "main.js": "/workshop-2021-website/static/js/main.cbbe506a.js",
+    "main.css": "/workshop-2021-website/static/css/main.3abf1313.css",
+    "main.js": "/workshop-2021-website/static/js/main.801a8d60.js",
+    "static/media/screen_capture_tutorial.gif": "/workshop-2021-website/static/media/screen_capture_tutorial.92ae9230dabe0872d8e0.gif",
     "static/media/demo-flappy.gif": "/workshop-2021-website/static/media/demo-flappy.dba1bd3a58f4fcae469d.gif",
     "static/media/demo-change.gif": "/workshop-2021-website/static/media/demo-change.7076ed409a1f02e5b0c4.gif",
     "static/media/make-change.PNG": "/workshop-2021-website/static/media/make-change.03627fda48dc7bee95de.PNG",
     "static/media/demo-music.gif": "/workshop-2021-website/static/media/demo-music.744bd0a0073d8230c18b.gif",
-    "static/media/cat-dog-model.PNG": "/workshop-2021-website/static/media/cat-dog-model.9aa4a4e3876099ccbaf2.PNG",
+    "static/media/cat-dog-model.PNG": "/workshop-2021-website/static/media/cat-dog-model.dfa39db782f21c0630a4.PNG",
     "static/media/music-game.PNG": "/workshop-2021-website/static/media/music-game.caee2cb1bd97151eb49a.PNG",
     "static/media/banner.jpeg": "/workshop-2021-website/static/media/banner.5e66591490919f2303c2.jpeg",
     "static/media/flappy-bird.PNG": "/workshop-2021-website/static/media/flappy-bird.efb689dfdf4da56d3510.PNG",
+    "static/media/sample_screenshot.PNG": "/workshop-2021-website/static/media/sample_screenshot.b06b0d081679e1b8e46a.PNG",
     "static/media/among-us.PNG": "/workshop-2021-website/static/media/among-us.408cc17f47ecf62712f6.PNG",
+    "static/media/codelab-adaptar.PNG": "/workshop-2021-website/static/media/codelab-adaptar.e7b924492cab68ff3c88.PNG",
     "static/media/logo.svg": "/workshop-2021-website/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/workshop-2021-website/index.html",
-    "main.777f2bae.css.map": "/workshop-2021-website/static/css/main.777f2bae.css.map",
-    "main.cbbe506a.js.map": "/workshop-2021-website/static/js/main.cbbe506a.js.map"
+    "main.3abf1313.css.map": "/workshop-2021-website/static/css/main.3abf1313.css.map",
+    "main.801a8d60.js.map": "/workshop-2021-website/static/js/main.801a8d60.js.map"
   },
   "entrypoints": [
-    "static/css/main.777f2bae.css",
-    "static/js/main.cbbe506a.js"
+    "static/css/main.3abf1313.css",
+    "static/js/main.801a8d60.js"
   ]
 }
