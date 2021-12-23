@@ -7,6 +7,7 @@ import logo from './logo.svg'
 import HomePage from './pages/HomePage/HomePage'
 import WorkshopPage from './pages/WorkshopPage/WorkshopPage'
 import SoftwarePage from './pages/SoftwarePage/SoftwarePage';
+import CapturePage from './pages/CapturePage/CapturePage';
 
 import DropZone from './components/DropZone/DropZone';
 import MainNav from './components/MainNav/MainNav';
@@ -37,6 +38,7 @@ function App() {
                 <Route path=":topic/:section" element={<WorkshopPage />}></Route>
               </Route>
               <Route path='/dl' element={<SoftwarePage/>}></Route>
+              <Route path='/capture-guide' element={<CapturePage/>}></Route>
             </Routes>
           </div>
         </div>

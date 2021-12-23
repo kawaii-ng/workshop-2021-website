@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './WorkshopPage.css'
 
-import musicGameImg from '../../images/music-game.PNG'
-import changeGameImg from '../../images/make-change.PNG'
-import birdGameImg from '../../images/flappy-bird.PNG'
-
 import SectionNav from '../../components/SectionNav/SectionNav'
 import WorkshopLayout from './WorkshopLayout/WorkshopLayout'
 

@@ -25,7 +25,7 @@ function SubmitLayout() {
                 typeof gameData !== 'undefined' && 
                 <>
                     <div style={{margin: '0em 1em'}}>
-                        <h1>遞交專案 <br/>「{gameData.name}」</h1>
+                        <h1>上載截圖 <br/>「{gameData.name}」</h1>
                         <img src={gameData.imgUrl} alt="" width="250px" height="200px"
                             style={{
                                 

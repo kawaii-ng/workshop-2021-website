@@ -9,7 +9,6 @@ import { gameDataList } from '../../../../data/game-data'
 
 import { Scrollbars } from 'react-custom-scrollbars'
 
-
 /**
  * 
  * @DemoLayout :
@@ -113,7 +112,7 @@ function DemoLayout() {
             <div className='demo-left-frame'>
                 {
                     typeof gameData != "undefined" && gameData.demo !== null && 
-                    gameData.demo.scratchUrl 
+                    gameData.demo.frame
                 }
             </div>
 
@@ -126,7 +125,7 @@ function DemoLayout() {
                     <div className='tab-group'>
                         <div className={`tab-btn ${tabItem=="game" ? "tab-active" : ""}`}
                             onClick={()=>{setTabItem('game')}}>
-                            <span style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid'color={tabItem == "game" ? 'white' : "black"} name='joystick'></box-icon> <span>遊戲玩法</span> </span>
+                            <span style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid'color={tabItem == "game" ? 'white' : "black"} name={typeof gameData !== 'undefined' ? gameData.sectionList[0] == "練習內容"? "detail":"joystick" : ""}></box-icon> <span>{typeof gameData !== 'undefined' ? gameData.sectionList[0] == "練習內容"? "練習內容":"遊戲玩法" : ""}</span> </span>
                         </div>
                         <div className={`tab-btn ${tabItem=="material" ? "tab-active" : ""}`}
                             onClick={()=>{setTabItem('material')}}>
@@ -140,7 +139,8 @@ function DemoLayout() {
                     tabItem == 'game' 
                     && 
                     <div>
-                        <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid' name='joystick'></box-icon>遊戲玩法</h3>
+                        <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid' name={typeof gameData !== 'undefined' ? gameData.sectionList[0] == "練習內容"? "detail":"joystick" : ""}></box-icon>{typeof gameData !== 'undefined' ? gameData.sectionList[0] == "練習內容"? "練習內容":"遊戲玩法" : ""}</h3>
+                        { typeof gameData != "undefined" && gameData.demo !== null && typeof gameData.demo.url !== "undefined" && <a href={gameData.demo.url} target="blank">直接到專案頁面</a>}
                         { typeof gameData != "undefined" && gameData.demo !== null && gameData.demo.instruction}
                     </div>
 
@@ -158,7 +158,7 @@ function DemoLayout() {
                             {
                                 
                                 <>
-                                    <div class="demo-file-title">
+                                    <div className="demo-file-title">
                                         <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon name='folder' type='solid' ></box-icon>所需檔案</h3>
                                         <span className="demo-file-num">{materialList.length} 個檔案</span>
                                     </div>
@@ -186,7 +186,7 @@ function DemoLayout() {
                                     <div>
                                         <h3 style={{display: 'flex', alignItems: 'center'}}><box-icon type='solid' name='window-alt'></box-icon>所需軟件</h3>
                                         <div className='software-url' 
-                                            onClick={() => gameData.ide == "Scratch" ? window.open('https://scratch.mit.edu/projects/editor/?tutorial=getStarted', '_blank') : navigate('/dl')}
+                                            onClick={() => gameData.ide === "Scratch" ? window.open('https://scratch.mit.edu/projects/editor/?tutorial=getStarted', '_blank') : gameData.ide === "Teachable Machine" ? window.open('https://teachablemachine.withgoogle.com/train', '_blank') :navigate('/dl')}
                                             target='_blank'>
                                             {gameData.ide}
                                         </div>
