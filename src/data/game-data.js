@@ -3,6 +3,7 @@ import amongUsImg from '../images/among-us.PNG'
 import theChageGameImg from '../images/make-change.PNG'
 import musicGameImg from '../images/music-game.PNG'
 import flappyBirdImg from '../images/flappy-bird.PNG'
+import beatMonsterImg from '../images/beat-ghost.PNG'
 import changeDemo from '../images/demo-change.gif'
 import TeachableInstruction from '../pages/WorkshopPage/WorkshopLayout/DemoLayout/InstructionLayout/TeachableInstruction/TeachableInstruction'
 import MusicInstruction from '../pages/WorkshopPage/WorkshopLayout/DemoLayout/InstructionLayout/MusicInstruction/MusicInstruction'
@@ -61,6 +62,28 @@ const amongUsData = {
 
 }
 
+const beatMonsterData = {
+
+    id: 'beat-monster',
+    name: '打地鼠',
+    imgUrl: beatMonsterImg,
+    demo: {
+
+        url: "https://scratch.mit.edu/projects/621655568",
+        frame: <iframe src="https://scratch.mit.edu/projects/621655568/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>,
+        instruction: <ol>
+                        <li>點擊怪獸來擊退它</li>
+                    </ol>,
+        material: ""
+
+    },
+    submitDate: 29,
+    sectionList: ["實作示範", "上載截圖"],
+    firstPath: 'demo',
+    ide: 'Scratch'
+
+}
+
 const theChangeGameData = {
 
     id: 'the-change',
@@ -102,6 +125,6 @@ const flappyBirdData = {
 
 export const gameDataList = [
 
-    tmData, musicGameData, amongUsData, theChangeGameData, flappyBirdData
+    tmData, musicGameData, amongUsData, beatMonsterData, theChangeGameData, flappyBirdData
 
 ]

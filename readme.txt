@@ -9,12 +9,12 @@
 
 ## Usage
 
-```sh
+To running the react app, it can be enter the command below to the command line. 
+
 cd workshop-workpage
 npm i
 npm start
-```
 
 ## Link(s)
-- <https://kawaii-ng.github.io/workshop-2021-website/>
+- https://kawaii-ng.github.io/workshop-2021-website
 - learntoday.codes 
